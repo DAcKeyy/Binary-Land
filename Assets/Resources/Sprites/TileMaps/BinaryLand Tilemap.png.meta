@@ -3330,6 +3330,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Background
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 265
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a5729a3c914b2946be977aa3a1cea8a
+      internalID: -2127065943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -3341,11 +3362,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Umbrella_Idle1: -1583907406
-      MessageBox_KIKU: -1671356095
+      PirpleBoyPeng_Interact3: 81863923
       PirpleGirlPeng_Idle: -2117227495
       BlueGirlPeng_Down2: 1501048997
       Box_Yellow: -1718623885
+      Icon_Whale: -2038127706
       Jellyfish: 1125746509
       BirdPinck_Swipe2: 1867502922
       Flamey_Idle2: -1930733072
@@ -3367,6 +3388,7 @@ TextureImporter:
       Box_GreenMint: 1156599766
       PirpleBoyPeng_Idle: 239695108
       BlueGirlPeng_Top3: 899112701
+      Background: -2127065943
       Wave_Top1: -529616314
       LilPirplePeng_Top2: -1850618233
       Points_5000: 1285300321
@@ -3403,8 +3425,8 @@ TextureImporter:
       Block_Green: 1570469398
       LilPirplePeng_Left1: 743927062
       Points_800: 721475334
-      PirpleBoyPeng_Interact1: 1833527718
       BirdGreen_Swipe2: -635120968
+      PirpleBoyPeng_Interact1: 1833527718
       Spider_Walk1: -962460083
       GreenBoyPeng_Top3: -333457848
       LilPirplePeng_Down2: 704788710
@@ -3479,21 +3501,21 @@ TextureImporter:
       PirpleBoyPeng_Died: -361438019
       GreenBoyPeng_Interact2: 305469303
       Points_500: 1223669327
-      GreenBoyPeng_Left3: -1078914294
+      Umbrella_Idle1: -1583907406
       PirpleBoyPeng_Left2: 1085847781
+      GreenBoyPeng_Left3: -1078914294
+      BigRedHeart_InCage: -1586442634
       BlueBoyPeng_Top3: -2004881549
+      Block_LightPink: -758078280
       LilGreenPeng_Down1: 2069783084
       PirpleBoyPeng_Top2: 1611455811
-      Block_LightPink: -758078280
       BigPinckHeartBox: 1140099817
-      Icon_Penguin: 959957606
-      Wave_Top2: 2094382192
-      BigRedHeart_InCage: -1586442634
       BlueBoyPeng_Top1: -451211990
-      Icon_Klaxon: 979034107
+      MessageBox_KIKU: -1671356095
+      Wave_Top2: 2094382192
+      Icon_Penguin: 959957606
       BlueGirlPeng_Died: -6200276
-      PirpleBoyPeng_Interact3: 81863923
-      Icon_Whale: -2038127706
+      Icon_Klaxon: 979034107
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
