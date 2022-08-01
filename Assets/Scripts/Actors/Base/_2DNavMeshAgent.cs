@@ -23,9 +23,9 @@ namespace Actors.Base
             LookVector = transform.position;
         }
 
-        public virtual void MoveTo(Vector2 position)
+        public virtual void MoveTo(Vector2 direction)
         {
-            ThisAgent.Move(position);
+            ThisAgent.Move(direction);
         }
 
         public virtual void Interact()

@@ -4,7 +4,7 @@ using UnityEngine;
 namespace UI
 {
 	[RequireComponent(typeof(Canvas))]
-	public class GameCanvas : MonoBehaviour
+	public class BinaryLandCanvas_Runtime : MonoBehaviour
 	{
 		[SerializeField] private TMP_Text _scoreText;
 		[SerializeField] private TMP_Text _timeText;

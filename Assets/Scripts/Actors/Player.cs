@@ -7,11 +7,13 @@ namespace Actors
     {
         public void ApplyMove(Vector2 direction)
         {
+            Debug.Log($"direction: {direction}");
             MoveTo(direction);
         }
 
         public void ApplyInteraction()
         {
+            Debug.Log($"Interact");
             Interact();
         }
     }

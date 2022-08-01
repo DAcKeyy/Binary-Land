@@ -1,4 +1,5 @@
-﻿using Actors.Base;
+﻿using System;
+using Actors.Base;
 using UnityEngine;
 
 namespace Actors.Creatures
@@ -6,7 +7,9 @@ namespace Actors.Creatures
 	[RequireComponent(typeof(Animator))]
 	public class Penguin : _2DNavMeshAgent
 	{
-		[SerializeField] private float _speedMultiplier;
+		public Action Died = delegate {  };
+		
+		[SerializeField] private float _speedMultiplier = 1;
 		private Animator _thisAnimator;
 		
 		private void Start()
@@ -14,14 +17,17 @@ namespace Actors.Creatures
 			_thisAnimator = GetComponent<Animator>();
 		}
 
-		public override void MoveTo(Vector2 position)
+		private void FixedUpdate()
 		{
-			LookVector = position;
+			ThisAgent.Move(LookVector * (_speedMultiplier * Time.deltaTime));
+		}
+
+		public override void MoveTo(Vector2 direction)
+		{
+			LookVector = direction;
 			
-			_thisAnimator.SetFloat("XAxis", position.x);
-			_thisAnimator.SetFloat("YAxis", position.y);
-			
-			ThisAgent.Move(position * _speedMultiplier * Time.deltaTime);
+			_thisAnimator.SetFloat("XAxis", direction.x);
+			_thisAnimator.SetFloat("YAxis", direction.y);
 		}
 
 		public override void Interact()
