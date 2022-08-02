@@ -4,42 +4,57 @@ using UnityEngine.AI;
 
 namespace Actors.Base
 {
-    [RequireComponent(typeof(NavMeshAgent))]
+    [RequireComponent(typeof(NavMeshAgent), typeof(Collider))]
     public abstract class _2DNavMeshAgent : MonoBehaviour
     {
-        public Action<GameObject> Interacted = delegate(GameObject o) {  };
-
-        protected NavMeshAgent ThisAgent;
-        protected Vector2 LookVector;
+        [SerializeField] private SpriteRenderer _viewSprite;
+        [SerializeField] private SpriteRenderer _emotionSprite;
         
-        [SerializeField] private SpriteRenderer _thisSprite;
+        private Vector2 _lastLookVector;
+        private Collider _thisCollider;
+        private NavMeshAgent _thisAgent;
+        private Vector2 _lookVector;
         
         private void Awake()
         {
-            ThisAgent = GetComponent<NavMeshAgent>();
-            LookVector = Vector2.zero;
-            _thisSprite.transform.Rotate(new Vector3(90, 0, 0));
+            _thisCollider = GetComponent<Collider>();
+            _thisAgent = GetComponent<NavMeshAgent>();
+            
+            _lookVector = Vector2.zero;
+            
+            _viewSprite.transform.Rotate(new Vector3(90, 0, 0));//Так как агент попроачивается к навмешу задом вместе с спрайтом
+            _emotionSprite.transform.Rotate(new Vector3(90, 0, 0));
         }
 
         protected virtual void SetMoveVector(Vector2 direction)
         {
-            LookVector = direction;
+            if (direction != Vector2.zero) _lastLookVector = direction;
+            
+            _lookVector = direction;
         }
         
         private void FixedUpdate()
         {
-            if (LookVector.x == 0) LookVector.x = 0.000001f;//Если X 0 то он вообще не перемещается, хз почему
+            if (_lookVector.x == 0) _lookVector.x = 0.0001f;//Если X 0 то он вообще не перемещается, хз почему
             
-            ThisAgent.Move(LookVector * Time.deltaTime * ThisAgent.speed);
+            _thisAgent.Move(_lookVector * Time.deltaTime * _thisAgent.speed);
         }
 
         protected virtual void Interact()
         {
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, LookVector);
-
+            Physics.Raycast(transform.position, 
+                _lastLookVector, 
+                out RaycastHit hit, 
+                Mathf.Lerp(_thisCollider.bounds.size.x, _thisCollider.bounds.size.z, 0.5f) / 1.9F);
+            
+            Debug.DrawRay(transform.position, _lastLookVector, Color.red, 1f);
+            
             if (hit.collider != null)
             {
-                Interacted(hit.collider.gameObject);
+                if (hit.collider.gameObject.TryGetComponent(out IItem item))
+                {
+                    item.Interact(this);
+                }
             }
         }
     }

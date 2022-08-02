@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Actors.Items
 {
-	[RequireComponent(typeof(Collider))]
+	[RequireComponent(typeof(Collider),typeof(Rigidbody))]
 	public class SpiderWeb : MonoBehaviour
 	{
 		private void Reset()

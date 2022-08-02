@@ -7,12 +7,14 @@ using UnityEngine;
 namespace Actors.Creatures
 {
 	[RequireComponent(typeof(Animator), typeof(Collider))]
-	public class Penguin : _2DNavMeshAgent, ITrapVisitor
+	public class Penguin : _2DNavMeshAgent, ITrapVisitor, IItemVisitor
 	{
 		public Action Died = delegate {  };
+		public Action ReachedHeart = delegate {  };
 		
 		private Animator _thisAnimator;
-		private bool _isStunned;
+		private bool _isDisabled;
+		
 		private void Start()
 		{
 			_thisAnimator = GetComponent<Animator>();
@@ -20,7 +22,7 @@ namespace Actors.Creatures
 
 		protected override void SetMoveVector(Vector2 direction)
 		{
-			if(_isStunned) return;
+			if(_isDisabled) return;
 			
 			_thisAnimator.SetFloat("XAxis", direction.x);
 			_thisAnimator.SetFloat("YAxis", direction.y);
@@ -34,7 +36,7 @@ namespace Actors.Creatures
 
 		protected override void Interact()
 		{
-			if(_isStunned) return;
+			if(_isDisabled) return;
 			
 			_thisAnimator.SetTrigger("Interacting");
 			
@@ -50,11 +52,19 @@ namespace Actors.Creatures
 		{
 			SetMoveVector(Vector2.zero);
 			_thisAnimator.SetBool("IsStuned", true);
-			_isStunned = true;
+			_isDisabled = true;
 			yield return new WaitForSeconds(seconds);
 			
-			_isStunned = false;
+			_isDisabled = false;
 			_thisAnimator.SetBool("IsStuned", false);
+		}
+
+		public void ItemVisit(BigHeart heart)
+		{
+			SetMoveVector(Vector2.zero);
+			_thisAnimator.SetBool("IsWinned", true);
+			_isDisabled = true;
+			ReachedHeart();
 		}
 	}
 }
