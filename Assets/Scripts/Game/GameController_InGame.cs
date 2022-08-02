@@ -10,6 +10,7 @@ namespace Game
 	public class GameController_InGame : MonoBehaviour
 	{
 		[SerializeField] private BinaryLandCanvas_Runtime _binaryLandCanvasRuntime;
+		[SerializeField] private BinaryLandCanvas_GameOver _gameOverCanvas;
 		[SerializeField] private Player _player;
 		[SerializeField] private InputHandler _inputHandler;
 		private Action<InputAction.CallbackContext> _interactionHandler;
@@ -38,7 +39,7 @@ namespace Game
 
 		private void Win()
 		{
-			Debug.Log("sasd");
+			_gameOverCanvas.gameObject.SetActive(true);
 		}
 	}
 }
