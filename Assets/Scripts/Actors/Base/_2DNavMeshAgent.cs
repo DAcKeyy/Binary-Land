@@ -4,26 +4,24 @@ using UnityEngine.AI;
 
 namespace Actors.Base
 {
-    [RequireComponent(
-        typeof(NavMeshAgent), 
-        typeof(SpriteRenderer),
-        typeof(SpriteRenderer))]
+    [RequireComponent(typeof(NavMeshAgent))]
     public abstract class _2DNavMeshAgent : MonoBehaviour
     {
         public Action<GameObject> Interacted = delegate(GameObject o) {  };
 
         protected NavMeshAgent ThisAgent;
-        protected SpriteRenderer ThisSprite;
         protected Vector2 LookVector;
         
-        private void Start()
+        [SerializeField] private SpriteRenderer _thisSprite;
+        
+        private void Awake()
         {
             ThisAgent = GetComponent<NavMeshAgent>();
-            ThisSprite = GetComponent<SpriteRenderer>();
             LookVector = transform.position;
+            _thisSprite.transform.Rotate(new Vector3(90, 0, 0));
         }
 
-        public virtual void MoveTo(Vector2 direction)
+        public virtual void SetMoveDirection(Vector2 direction)
         {
             ThisAgent.Move(direction);
         }

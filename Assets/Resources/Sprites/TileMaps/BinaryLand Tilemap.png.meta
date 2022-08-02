@@ -3339,7 +3339,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3362,11 +3362,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      PirpleBoyPeng_Interact3: 81863923
+      BlueGirlPeng_Died: -6200276
       PirpleGirlPeng_Idle: -2117227495
       BlueGirlPeng_Down2: 1501048997
       Box_Yellow: -1718623885
-      Icon_Whale: -2038127706
+      Icon_Klaxon: 979034107
       Jellyfish: 1125746509
       BirdPinck_Swipe2: 1867502922
       Flamey_Idle2: -1930733072
@@ -3501,21 +3501,21 @@ TextureImporter:
       PirpleBoyPeng_Died: -361438019
       GreenBoyPeng_Interact2: 305469303
       Points_500: 1223669327
-      Umbrella_Idle1: -1583907406
-      PirpleBoyPeng_Left2: 1085847781
-      GreenBoyPeng_Left3: -1078914294
-      BigRedHeart_InCage: -1586442634
-      BlueBoyPeng_Top3: -2004881549
-      Block_LightPink: -758078280
       LilGreenPeng_Down1: 2069783084
       PirpleBoyPeng_Top2: 1611455811
+      GreenBoyPeng_Left3: -1078914294
+      Umbrella_Idle1: -1583907406
+      BigRedHeart_InCage: -1586442634
       BigPinckHeartBox: 1140099817
-      BlueBoyPeng_Top1: -451211990
-      MessageBox_KIKU: -1671356095
-      Wave_Top2: 2094382192
+      PirpleBoyPeng_Left2: 1085847781
       Icon_Penguin: 959957606
-      BlueGirlPeng_Died: -6200276
-      Icon_Klaxon: 979034107
+      Wave_Top2: 2094382192
+      BlueBoyPeng_Top1: -451211990
+      Block_LightPink: -758078280
+      BlueBoyPeng_Top3: -2004881549
+      PirpleBoyPeng_Interact3: 81863923
+      MessageBox_KIKU: -1671356095
+      Icon_Whale: -2038127706
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

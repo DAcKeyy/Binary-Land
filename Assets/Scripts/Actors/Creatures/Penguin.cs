@@ -22,8 +22,9 @@ namespace Actors.Creatures
 			ThisAgent.Move(LookVector * (_speedMultiplier * Time.deltaTime));
 		}
 
-		public override void MoveTo(Vector2 direction)
+		public override void SetMoveDirection(Vector2 direction)
 		{
+			Debug.Log(direction);
 			LookVector = direction;
 			
 			_thisAnimator.SetFloat("XAxis", direction.x);

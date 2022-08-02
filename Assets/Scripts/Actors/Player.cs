@@ -8,7 +8,7 @@ namespace Actors
         public void ApplyMove(Vector2 direction)
         {
             Debug.Log($"direction: {direction}");
-            MoveTo(direction);
+            SetMoveDirection(direction);
         }
 
         public void ApplyInteraction()
