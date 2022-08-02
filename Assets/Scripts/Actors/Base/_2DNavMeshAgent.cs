@@ -21,14 +21,14 @@ namespace Actors.Base
             _thisSprite.transform.Rotate(new Vector3(90, 0, 0));
         }
 
-        protected virtual void SetMoveDirection(Vector2 direction)
+        protected virtual void SetMoveVector(Vector2 direction)
         {
             LookVector = direction;
         }
         
         private void FixedUpdate()
         {
-            if (LookVector.x == 0) LookVector.x = 0.0001f;//Если X 0 то он вообще не перемещается, хз почему
+            if (LookVector.x == 0) LookVector.x = 0.000001f;//Если X 0 то он вообще не перемещается, хз почему
             
             ThisAgent.Move(LookVector * Time.deltaTime * ThisAgent.speed);
         }
