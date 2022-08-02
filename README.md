@@ -8,4 +8,6 @@ Binary Land с игровой приставки NES на Unity.
   <img src="Assets/Resources/Images/Project/Logo_v1.png">
 </p>
 
-![](Assets/Resources/Images/Project/Gameplay%20Image%20v1%20(1).png)
+<p align="center">
+  <img src="Assets/Resources/Images/Project/Gameplay%20Image%20v1%20(1).png">
+</p>
