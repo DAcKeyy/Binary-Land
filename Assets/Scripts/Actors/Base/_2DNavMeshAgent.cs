@@ -28,7 +28,7 @@ namespace Actors.Base
         
         private void FixedUpdate()
         {
-            if (LookVector.x == 0) LookVector.x = 0.0001f;//Если X 0 то он вообще не перемещается
+            if (LookVector.x == 0) LookVector.x = 0.0001f;//Если X 0 то он вообще не перемещается, хз почему
             
             ThisAgent.Move(LookVector * Time.deltaTime * ThisAgent.speed);
         }

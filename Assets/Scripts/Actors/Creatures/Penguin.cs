@@ -21,6 +21,10 @@ namespace Actors.Creatures
 		{
 			_thisAnimator.SetFloat("XAxis", direction.x);
 			_thisAnimator.SetFloat("YAxis", direction.y);
+
+			if (Mathf.Abs(direction.x) > 0.1 || Mathf.Abs(direction.y) > 0.1)
+				_thisAnimator.SetBool("IsMoveApplyed", true);
+			else _thisAnimator.SetBool("IsMoveApplyed", false);
 			
 			base.SetMoveDirection(direction);
 		}
