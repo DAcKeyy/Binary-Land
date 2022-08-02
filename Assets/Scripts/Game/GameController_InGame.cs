@@ -14,7 +14,7 @@ namespace Game
 		private void Start()
 		{
 			_inputHandler._fireAction.performed += context => _player.ApplyInteraction();
-			_inputHandler._moveAction.started += context => _player.ApplyMove(context.ReadValue<Vector2>());
+			_inputHandler._moveAction.performed += context => _player.ApplyMove(context.ReadValue<Vector2>());
 			_inputHandler._moveAction.canceled += context => _player.ApplyMove(Vector2.zero);
 		}
 	}

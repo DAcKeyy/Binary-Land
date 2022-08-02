@@ -17,16 +17,23 @@ namespace Actors.Base
         private void Awake()
         {
             ThisAgent = GetComponent<NavMeshAgent>();
-            LookVector = transform.position;
+            LookVector = Vector2.zero;
             _thisSprite.transform.Rotate(new Vector3(90, 0, 0));
         }
 
-        public virtual void SetMoveDirection(Vector2 direction)
+        protected virtual void SetMoveDirection(Vector2 direction)
         {
-            ThisAgent.Move(direction);
+            LookVector = direction;
+        }
+        
+        private void FixedUpdate()
+        {
+            if (LookVector.x == 0) LookVector.x = 0.0001f;//Если X 0 то он вообще не перемещается
+            
+            ThisAgent.Move(LookVector * Time.deltaTime * ThisAgent.speed);
         }
 
-        public virtual void Interact()
+        protected virtual void Interact()
         {
             RaycastHit2D hit = Physics2D.Raycast(transform.position, LookVector);
 

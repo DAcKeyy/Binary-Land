@@ -91,7 +91,7 @@ PlayerSettings:
   resizableWindow: 0
   useMacAppStoreValidation: 0
   macAppStoreCategory: public.app-category.games
-  gpuSkinning: 0
+  gpuSkinning: 1
   xboxPIXTextureCapture: 0
   xboxEnableAvatar: 0
   xboxEnableKinect: 0
@@ -134,7 +134,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: '[2.8.2022] commit:ba3d6e0'
+  bundleVersion: '[2.8.2022] commit:7b54a07'
   preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0

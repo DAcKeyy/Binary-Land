@@ -9,7 +9,7 @@ namespace Actors.Creatures
 	{
 		public Action Died = delegate {  };
 		
-		[SerializeField] private float _speedMultiplier = 1;
+		
 		private Animator _thisAnimator;
 		
 		private void Start()
@@ -17,21 +17,15 @@ namespace Actors.Creatures
 			_thisAnimator = GetComponent<Animator>();
 		}
 
-		private void FixedUpdate()
+		protected override void SetMoveDirection(Vector2 direction)
 		{
-			ThisAgent.Move(LookVector * (_speedMultiplier * Time.deltaTime));
-		}
-
-		public override void SetMoveDirection(Vector2 direction)
-		{
-			Debug.Log(direction);
-			LookVector = direction;
-			
 			_thisAnimator.SetFloat("XAxis", direction.x);
 			_thisAnimator.SetFloat("YAxis", direction.y);
+			
+			base.SetMoveDirection(direction);
 		}
 
-		public override void Interact()
+		protected override void Interact()
 		{
 			_thisAnimator.SetTrigger("Interacting");
 			
